@@ -1,0 +1,6 @@
+{
+  "posts": [
+    { "img": "https://picsum.photos/id/25/200/300", "title": "a title", "desc": "wow!" },
+    { "img": "https://picsum.photos/id/119/200/300", "title": "another title", "desc": "wow!!!" }
+  ]
+}
