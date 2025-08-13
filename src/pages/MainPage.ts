@@ -16,14 +16,21 @@ class MainPage extends HTMLElement{
             this.shadowRoot.innerHTML = `
             <link rel="stylesheet" href="css/MainPage.css">
 
-            <div class="main">
+            <div class="main" id="main-p">
             <div class="top">
                 <h1>Posts</h1>
-                <button>+ New Post</button>
+                <button id="open-new">+ New Post</button>
             </div>
             <post-render></post-render>
 
             </div>`;
+            const openNew = this.shadowRoot.getElementById('open-new');
+            openNew?.addEventListener('click', () => {
+                const mainP = this.shadowRoot?.getElementById('main-p');
+                if(mainP) {
+                mainP.innerHTML = `<create-post></create-post>`
+                }
+            })
         }
     
     }
