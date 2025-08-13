@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "concurrently \"npm start\" \"npx json-server --watch src/data/db.json --port 5000\"",
+    "dev": "concurrently \"npm start\" \"npx json-server --watch src/data/db.json --port 5000\" \"webpack serve --mode=development\"",
     "build": "webpack --mode=production",
     "start": "webpack serve --mode=development",
     "lint": "eslint src/ --ext .ts,.js --report-unused-disable-directives",
