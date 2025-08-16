@@ -15,7 +15,9 @@ class CreatePostPage extends HTMLElement {
       return;
     }
     this.shadowRoot.innerHTML = `
-            <link rel="stylesheet" href="css/MainPage.css">
+            <link rel="stylesheet" href="css/CreatePage.css">
+        <div id="create-page">
+        <button id="go-back">View Posts</button>
         <form id="postForm">
         <label>
           Title:
@@ -33,20 +35,32 @@ class CreatePostPage extends HTMLElement {
         <br />
         <button type="submit">Enviar</button>
       </form>
+      </div>
             `;
-           
+    const createPage = this.shadowRoot.getElementById('create-page')
+    const backBtn = this.shadowRoot.getElementById('go-back');
+    backBtn?.addEventListener('click', () => {
+      if(createPage) {
+        createPage.innerHTML = `<main-page></main-page>`
+      }
+    })
     const form = this.shadowRoot.getElementById('postForm') as HTMLFormElement;
     form?.addEventListener('submit', (e) => {
         e.preventDefault();
          const imgInput = this.shadowRoot?.getElementById('input-url') as HTMLInputElement
             const titleInput = this.shadowRoot?.getElementById('input-title') as HTMLInputElement
             const descInput = this.shadowRoot?.getElementById('input-desc') as HTMLInputElement
-            const img = imgInput.value
-            const title = titleInput.value;
-            const desc = descInput.value;
 
+            const img = imgInput.value.trim();
+            const title = titleInput.value.trim();
+            const desc = descInput.value.trim();
+
+            if (!img || !title || !desc) {
+                alert('Please fill out all fields before submitting.');
+                return;
+            }
         getPosts().then(data => {
-            const postId = data.length + 1;
+            const postId = String(data.length + 1);
             fetch('http://localhost:5000/posts', {
                 method: 'POST',
                 headers: {
@@ -60,7 +74,11 @@ class CreatePostPage extends HTMLElement {
                 })
             })
             .then(res => res.json())
-            .then(data => console.log(data))
+            .then(() => {
+                    if(createPage) {
+                createPage.innerHTML = `<main-page></main-page>`
+              }
+            })
 
         })
 

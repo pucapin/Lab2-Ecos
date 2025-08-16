@@ -21,6 +21,21 @@ class PostCard extends HTMLElement{
                 <img src="${this.getAttribute('img')}" alt="" class="imgF">
                 <button id="delete-btn">Delete</button>
             </div>`;
+            const postId = this.getAttribute('id');
+            const deleteBtn = this.shadowRoot.getElementById('delete-btn');
+            deleteBtn?.addEventListener('click', () => {
+                if(!postId) {
+                    return;
+                }
+                console.log(postId)
+                fetch('http://localhost:5000/posts/' + postId, {
+                method: 'DELETE',
+                })
+                .then(response => response.json())
+                .then(() => {
+                    location.reload();
+                })
+            })
         }
     
     }

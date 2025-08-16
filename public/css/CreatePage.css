@@ -1,0 +1,71 @@
+button {
+    background: #ff9eb5;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 25px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.15);
+    transition: 0.3s ease;
+}
+
+button:hover {
+    background: #ff7d9a;
+    transform: translateY(-2px);
+}
+
+#postForm {
+    max-width: 400px;
+    margin: 30px auto;
+    padding: 20px;
+    background: #fffdfa;
+    border-radius: 15px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.08);
+    border: 2px solid #f4dada;
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+#postForm label {
+    font-size: 0.95rem;
+    color: #444;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+#postForm input {
+    padding: 10px 12px;
+    border: 1.5px solid #f4dada;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    outline: none;
+    transition: 0.2s ease;
+    background: #fff;
+}
+
+#postForm input:focus {
+    border-color: #ff9eb5;
+    box-shadow: 0 0 0 3px rgba(255,158,181,0.2);
+}
+
+#postForm button {
+    background: #ff9eb5;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 25px;
+    color: white;
+    font-weight: bold;
+    font-size: 1rem;
+    cursor: pointer;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.15);
+    transition: 0.3s ease;
+}
+
+#postForm button:hover {
+    background: #ff7d9a;
+    transform: translateY(-2px);
+}
